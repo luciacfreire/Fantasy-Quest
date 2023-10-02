@@ -1,10 +1,11 @@
-// CLASE CABALLERO QUE HEREDA DE JUGADOR
-public class Caballero extends Jugador {
+// CLASE CABALLERO QUE HEREDA DE PERSONAJE
+public class Caballero extends Personaje {
     private int armadura;
-    private int energia;
+    private String habilidadEspecial;
 
-    public Caballero(String nombre, int salud, int nivel, String habilidadEspecial, int armadura, int energia) {
-        super(nombre, salud, nivel, habilidadEspecial);
+    public Caballero(String nombre, int salud, int nivel, int energia, int armadura, String habilidadEspecial) {
+        super(nombre, salud, nivel, energia);
         this.armadura = armadura;
+        this.habilidadEspecial = habilidadEspecial;
     }
 }

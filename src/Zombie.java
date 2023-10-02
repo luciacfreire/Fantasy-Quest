@@ -1,9 +1,12 @@
-// CLASE ZOMBIE QUE HEREDA DE ENEMIGO
-public class Zombie extends Enemigo {
+// CLASE ZOMBIE QUE HEREDA DE PERSONAJE
+public class Zombie extends Personaje {
     private int fuerza;
+    private String habilidadEspecial;
 
-    public Zombie(String nombre, int salud, int nivelDificultad, int fuerza) {
-        super(nombre, salud, nivelDificultad);
+
+    public Zombie(String nombre, int salud, int nivel, int energia, int fuerza,String habilidadEpecial) {
+        super(nombre, salud, nivel,energia);
         this.fuerza = fuerza;
+        this.habilidadEspecial = habilidadEspecial;
     }
 }
