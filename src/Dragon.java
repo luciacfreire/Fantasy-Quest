@@ -1,9 +1,11 @@
-//CLASE DRAGON QUE HEREDA DE ENEMIGO
-public class Dragon extends Enemigo {
+//CLASE DRAGON QUE HEREDA DE PERSONAJE
+public class Dragon extends Personaje {
     private int fuegoAliento;
+    private String habilidadEspecial;
 
-    public Dragon(String nombre, int salud, int nivelDificultad, int fuegoAliento) {
-        super(nombre, salud, nivelDificultad);
+    public Dragon(String nombre, int salud, int nivel, int energia, int fuegoAliento, String habilidadEspecial) {
+        super(nombre, salud, nivel, energia);
         this.fuegoAliento = fuegoAliento;
+        this.habilidadEspecial = habilidadEspecial;
     }
 }
