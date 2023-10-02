@@ -6,13 +6,13 @@
 
 ```mermaid
 classDiagram
-    Personaje <|-- Caballero
-    Personaje <|-- Mago
-    Personaje <|-- Elfo
-    Personaje <|-- Dragon
-    Personaje <|-- Esqueleto
-    Personaje <|-- Goblin
-    Personaje <|-- Zombie
+    Personaje <|-- "0..1" Caballero
+    Personaje <|-- "0..1" Mago
+    Personaje <|-- "0..1" Elfo
+    Personaje <|-- "1" Dragon
+    Personaje <|-- "*" Esqueleto
+    Personaje <|-- "*" Goblin
+    Personaje <|-- "*" Zombie
     Personaje : -int salud
     Personaje : -String nombre
     Personaje: -int nivel
@@ -38,8 +38,8 @@ classDiagram
     Elementos : +string nombre
     Elementos : +int ubicacion 
     Elementos : +aparecerElemento()
-    Elementos <|-- Alimentos
-    Elementos <|-- Armas
+    Elementos <|-- "1..*" Alimentos
+    Elementos <|-- "1..*" Armas
     class Alimentos {
     +int puntosRecuperar
     +recuperarVida()   
