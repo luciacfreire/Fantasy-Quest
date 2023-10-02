@@ -21,7 +21,7 @@ classDiagram
     Personaje : +caminar()
     Personaje : +atacar()
     Personaje : +defender()
-    Juego "1" *-- Personaje
+    Juego "1" *-- "1..*" Personaje
     Juego : +int dificultad
     Juego : +string mapa
     Juego : +string misiones
@@ -29,7 +29,7 @@ classDiagram
     Juego : +elegirDificultad()
     Juego : +cargarMapa()
     Juego : +finJuego()
-    Juego "1" *-- Mapa
+    Juego "1" *-- "1" Mapa
     Mapa : +string nombre
     Mapa : +string descripcion
     Mapa : +cargarElementos()
