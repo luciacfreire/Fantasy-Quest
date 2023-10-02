@@ -29,7 +29,7 @@ classDiagram
     Juego : +elegirDificultad()
     Juego : +cargarMapa()
     Juego : +finJuego()
-    Juego 1 *-- Mapa
+    Juego  *-- Mapa
     Mapa : +string nombre
     Mapa : +string descripcion
     Mapa : +cargarElementos()
