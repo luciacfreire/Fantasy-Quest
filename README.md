@@ -6,6 +6,7 @@ En este nuestro juego de Fantasy Quest nuestra idea es la de crear un rpg con un
 
 Hemos añadido 3 biomas; Bosque encantado, mazmorras y montañas nevadas.
 
+Fantasy Quest es un juego en el que el jugador asume el papel de un héroe que debe embarcarse en una búsqueda épica para salvar el reino de las garras de un malvado dragón. El juego incluirá personajes con habilidades únicas, varios tipos de enemigos, múltiples niveles de dificultad y elementos interactivos en los escenarios.
 
 ## UML Diagram
 
