@@ -11,9 +11,10 @@ Fantasy Quest es un juego en el que el jugador asume el papel de un héroe que d
 Los jugadores pueden elegir entre varios personajes jugables, cada uno con habilidades únicas. Por ejemplo, un guerrero puede tener ataques cuerpo a cuerpo fuertes, mientras que un mago puede lanzar hechizos poderosos. Además, habrá diferentes tipos de enemigos en cada escenario, desde goblins y esqueletos hasta dragones y zombies. Cada enemigo tendrá sus propias estadísticas y ataques.
 
 El juego tendrá una pantalla principal que mostrará el mapa y a mayores que mostrará la pantalla de combate.
-*INTERFACES*
 
+## INTERFACES
 
+Mapa : https://play-lh.googleusercontent.com/Fore1EPrxEERYP1mhB_UP9tGUARzrRHm5uzO2vVV0zC8wpolkXS9cRfZnOtegcDPtzs=w526-h296-rw
 Combate:https://www.fantasymundo.com/wp-content/uploads/2021/11/EN3.png
 
 ## UML Diagram
