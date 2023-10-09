@@ -4,6 +4,8 @@
 
 ## UML Diagram
 
+pp
+
 ```mermaid
 classDiagram
     Personaje <|-- "0..1" Caballero
