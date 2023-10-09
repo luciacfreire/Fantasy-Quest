@@ -12,7 +12,7 @@ Los jugadores pueden elegir entre varios personajes jugables, cada uno con habil
 
 El juego tendrá una pantalla principal que mostrará el mapa y a mayores que mostrará la pantalla de combate.
 
-# INTERFACES
+## Interfaces
 
 Mapa : https://play-lh.googleusercontent.com/Fore1EPrxEERYP1mhB_UP9tGUARzrRHm5uzO2vVV0zC8wpolkXS9cRfZnOtegcDPtzs=w526-h296-rw
 
