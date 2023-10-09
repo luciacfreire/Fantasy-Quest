@@ -2,9 +2,13 @@
 
 ## Descripción
 
+En este nuestro juego de Fantasy Quest nuestra idea es la de crear un rpg con una categoría de juego de rol, basado en un mundo de fanstasía.
+
+Hemos añadido 3 biomas; Bosque encantado, mazmorras y montañas nevadas.
+
+
 ## UML Diagram
 
-pp
 
 ```mermaid
 classDiagram
