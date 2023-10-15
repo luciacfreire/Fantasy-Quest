@@ -40,6 +40,10 @@ classDiagram
     Elementos : +aparecerElemento()
     Elementos <|-- "1..*" Alimentos
     Elementos <|-- "1..*" Armas
+    Armas o-- Combate 
+    Juego "1" o-- "1" Combate
+    Combate : +atacar()
+    Combate : +defender()
     class Alimentos {
     +int puntosRecuperar
     +recuperarVida()   
