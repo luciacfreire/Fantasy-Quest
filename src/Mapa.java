@@ -6,10 +6,11 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import java.io.File;
 
 public class Mapa extends JPanel implements KeyListener  {
 
-    private BufferedImage[][] background;
+    public Image caballero;
     public Color[][] mapaFondo;
 
     public Personaje personaje;
@@ -26,6 +27,14 @@ public class Mapa extends JPanel implements KeyListener  {
         addKeyListener(this);
         setFocusable(true);
         requestFocus();
+
+        try {
+            BufferedImage personajeImage = ImageIO.read(new File("C:\\Users\\Lucía\\Juego_de_rol\\images\\caballero.jpg"));
+            caballero = personajeImage.getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         // Configura el fondo del mapa
         configurarFondoMapa();
     }
@@ -58,7 +67,8 @@ public class Mapa extends JPanel implements KeyListener  {
         g.setColor(Color.BLACK);
         int personajeX = personaje.getX(); // Obtiene la posición X del personaje
         int personajeY = personaje.getY(); // Obtiene la posición Y del personaje
-        g.fillRect(personajeX, personajeY, 80, 80); // Dibuja un cuadrado negro
+        //g.fillRect(personajeX, personajeY, 80, 80); // Dibuja un cuadrado negro
+        g.drawImage(caballero, personajeX, personajeY, this);
     }
 
 

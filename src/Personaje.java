@@ -5,8 +5,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Personaje extends JPanel  {
-    private int x, y;
-    private final int speed = 5;
+    private int x;
+    private int y;
+    private final int speed = 10;
 
 
 
@@ -29,12 +30,15 @@ public class Personaje extends JPanel  {
         //setBackground(Color.RED);
     }
 
-    public void setX(int i) {
-        this.x = x;
-    }
+
 
     public void setY(int y) {
         this.y = y;
+    }
+
+
+    public void setX(int x) {
+        this.x = x;
     }
 }
 
