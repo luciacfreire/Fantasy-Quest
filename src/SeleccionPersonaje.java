@@ -84,18 +84,18 @@ public class SeleccionPersonaje extends JFrame {
         // Agrega un ActionListener a cada botón de radio para manejar la selección del usuario
         magoRadioButton.addActionListener(e -> {
             // Lógica para cuando se selecciona "Mago"
-            PersonajeSeleccionado = new Mago();
+            PersonajeSeleccionado = new Personaje();
             System.out.println("Mago seleccionado");
         });
 
         elfoRadioButton.addActionListener(e -> {
-            PersonajeSeleccionado = new Elfo();
+            PersonajeSeleccionado = new Personaje();
             // Lógica para cuando se selecciona "Elfo"
             System.out.println("Elfo seleccionado");
         });
 
         caballeroRadioButton.addActionListener(e -> {
-            PersonajeSeleccionado = new Caballero();
+            PersonajeSeleccionado = new Personaje();
             // Lógica para cuando se selecciona "Caballero"
             System.out.println("Caballero seleccionado");
         });

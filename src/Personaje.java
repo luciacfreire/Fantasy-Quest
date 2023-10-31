@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Personaje extends JPanel implements KeyListener {
+public class Personaje extends JPanel  {
     private int x, y;
     private final int speed = 5;
 
@@ -23,41 +23,19 @@ public class Personaje extends JPanel implements KeyListener {
 
     public Personaje() {
 
-
         // Establece el tamaño y el color del personaje
-        setBounds(x, y, 50, 50);
-        setOpaque(true);
-        setBackground(Color.RED);
-        addKeyListener(this);
-        setFocusable(true);
-        requestFocus();
+        //setBounds(x, y, 100, 100);
+        //setOpaque(true);
+        //setBackground(Color.RED);
     }
 
-    // Implementa los métodos KeyListener
-    @Override
-    public void keyTyped(KeyEvent e) {
+    public void setX(int i) {
+        this.x = x;
     }
 
-    @Override
-    public void keyPressed(KeyEvent e) {
-        int keyCode = e.getKeyCode();
-
-        if (keyCode == KeyEvent.VK_LEFT) {
-            x -= speed;
-        } else if (keyCode == KeyEvent.VK_RIGHT) {
-            x += speed;
-        } else if (keyCode == KeyEvent.VK_UP) {
-            y -= speed;
-        } else if (keyCode == KeyEvent.VK_DOWN) {
-            y += speed;
-        }
-
-        setLocation(x, y);
+    public void setY(int y) {
+        this.y = y;
     }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-    }
-
-
 }
+
+// Implementa los métodos KeyListener
