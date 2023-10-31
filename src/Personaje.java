@@ -8,19 +8,12 @@ public class Personaje extends JPanel implements KeyListener {
     private int x, y;
     private final int speed = 5;
 
-    private String race;
 
 
     public Personaje() {
 
     }
 
-    public String getRace(){
-        return race;
-    }
-    public void setRace(String race) {
-        this.race = race;
-    }
     @Override
     public int getY() {
         return y;
@@ -34,7 +27,6 @@ public class Personaje extends JPanel implements KeyListener {
 
     public Personaje(String race) {
 
-        this.race = race;
 
         // Establece el tamaño y el color del personaje
         setBounds(x, y, 50, 50);
