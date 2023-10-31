@@ -10,10 +10,6 @@ public class Personaje extends JPanel implements KeyListener {
 
 
 
-    public Personaje() {
-
-    }
-
     @Override
     public int getY() {
         return y;
@@ -25,7 +21,7 @@ public class Personaje extends JPanel implements KeyListener {
     }
 
 
-    public Personaje(String race) {
+    public Personaje() {
 
 
         // Establece el tamaño y el color del personaje
