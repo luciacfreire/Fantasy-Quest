@@ -4,9 +4,13 @@ public class Mago extends Personaje {
     private String habilidadEspecial;
 
     public Mago(String nombre, int salud, int nivel,int energia, int hechizos,String habilidadEspecial) {
-        super(nombre, salud, nivel,energia);
+        super();
         this.hechizos = hechizos;
         this.habilidadEspecial = habilidadEspecial;
+    }
+
+    public Mago() {
+
     }
 }
 

@@ -4,7 +4,7 @@ public class Esqueleto extends Personaje {
     private String habilidadEspecial;
 
     public Esqueleto(String nombre, int salud, int nivel, int energia, int resistenciaMagia, String habilidadEspecial) {
-        super(nombre, salud, nivel, energia);
+        super();
         this.resistenciaMagia = resistenciaMagia;
         this.habilidadEspecial = habilidadEspecial;
     }

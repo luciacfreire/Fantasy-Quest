@@ -4,8 +4,12 @@ public class Elfo extends Personaje {
     private String habilidadEspecial;
 
     public Elfo(String nombre, int salud, int nivel, int energia, String habilidadEspecial, int agilidad) {
-        super(nombre, salud, nivel, energia);
+        super();
         this.agilidad = agilidad;
         this.habilidadEspecial = habilidadEspecial;
+    }
+
+    public Elfo() {
+
     }
 }
