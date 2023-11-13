@@ -1,4 +1,4 @@
-// Clase Mapa
+// Clase MapaPanel
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -8,7 +8,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.io.File;
 
-public class Mapa extends JPanel implements KeyListener  {
+public class MapaPanel extends JPanel implements KeyListener  {
 
     public Image caballero;
     public Color[][] mapaFondo;
@@ -20,7 +20,7 @@ public class Mapa extends JPanel implements KeyListener  {
         mapaFondo.setLayout(null);
         return mapaFondo;
     }
-    public Mapa(Personaje personaje) {
+    public MapaPanel(Personaje personaje) {
         this.personaje = personaje;
         // Inicializa la matriz de colores
         mapaFondo = new Color[FantasyQuestMainMenu.screen_width][FantasyQuestMainMenu.screen_height];
@@ -40,8 +40,7 @@ public class Mapa extends JPanel implements KeyListener  {
     }
 
 
-    public void keyReleased(KeyEvent e) {
-    }
+
 
     private void configurarFondoMapa() {
         for (int x = 0; x < FantasyQuestMainMenu.screen_width; x++) {
@@ -72,12 +71,23 @@ public class Mapa extends JPanel implements KeyListener  {
     }
 
 
+    //
+    //CREAR UN PACKAGE : INPUTS, Y UNA CLASE : KEYBOARDINPUTS IMPLEMENTS KEYLISTENER
+    // private MapaPanel mapa;  public KeyboardInputs(MapaPanel mapa) { this.mapa = mapa; }
+    // addKeylistener(new keyboardinputs(this)); y quitamos de arriba el implements KeyListener
+    //CREAMOS FUNCIONES AQUI Y LAS LLAMAMOS EN LA CLASE KEYBINP, AÑADIENDO LOS VALORES PEDIDOS
+    // EN EL PAINTCOMPONENT UTILIZAMOS LOS VALORES MODIFICADOS
+
+
+    public void keyReleased(KeyEvent e) {
+    }
     @Override
     public void keyTyped(KeyEvent e) {
 
     }
 
     public void keyPressed(KeyEvent e) {
+
         int keyCode = e.getKeyCode();
 
         // Mueve al personaje en función de las teclas presionadas

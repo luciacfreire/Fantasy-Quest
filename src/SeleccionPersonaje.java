@@ -77,7 +77,7 @@ public class SeleccionPersonaje extends JFrame {
                 // Crear y mostrar la ventana de selección de personaje
                 ventanaMapa mapa = new ventanaMapa(PersonajeSeleccionado);
                 mapa.setVisible(true);
-                System.out.println("Comenzar Mapa");
+                System.out.println("Comenzar MapaPanel");
             }
         });
 

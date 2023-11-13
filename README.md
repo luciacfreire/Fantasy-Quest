@@ -12,7 +12,7 @@ El juego tendrá una pantalla principal, un mapa donde el personaje principal bu
 
 ### Interfaces
 
-Mapa :
+MapaPanel :
 https://i.ytimg.com/vi/7Pg_vPJEajk/maxresdefault.jpg
 
 Combate:
@@ -47,12 +47,12 @@ classDiagram
     Juego : +elegirDificultad()
     Juego : +cargarMapa()
     Juego : +finJuego()
-    Juego "1" *-- "1" Mapa
-    Mapa : +string nombre
-    Mapa : +string descripcion
-    Mapa : +cargarElementos()
-    Mapa : +cargarEnemigos()
-    Elementos o-- Mapa
+    Juego "1" *-- "1" MapaPanel
+    MapaPanel : +string nombre
+    MapaPanel : +string descripcion
+    MapaPanel : +cargarElementos()
+    MapaPanel : +cargarEnemigos()
+    Elementos o-- MapaPanel
     Elementos : +string nombre
     Elementos : +int ubicacion 
     Elementos : +aparecerElemento()
