@@ -36,6 +36,9 @@ public class Player extends Entity {
 
         solidArea = new Rectangle(8, 16, 32, 32);
 
+        solidAreaDefaultX = solidArea.x;
+        solidAreaDefaultY = solidArea.y;
+
         setDefaultValues();
         loadAnimations();
     }
@@ -68,6 +71,10 @@ public class Player extends Entity {
         //CHECK TILE COLLISION
         collisionOn = false;
         gamePanel.collCheck.checkTile(this);
+
+        //CHECK OBJECT COLLISION
+        int objIndex = gamePanel.collCheck.checkObject(this,true);
+        pickUpObject(objIndex);
 
         //IF COLLISION IS FALSE, PLAYER CAN MOVE
         if (!collisionOn) {
@@ -106,6 +113,26 @@ public class Player extends Entity {
                 break;
             default:
                 playerDir = lastPlayerDir;
+        }
+
+    }
+
+    public void pickUpObject(int i){
+
+        if(i != 999){
+            String objectName = gamePanel.obj[i].name;
+
+            switch (objectName){
+                case "More Speed":
+                    speed += 2;
+                    gamePanel.obj[i] = null;
+                    break;
+                case "Less Speed":
+                    speed -= 2;
+                    gamePanel.obj[i] = null;
+
+                    break;
+            }
         }
 
     }

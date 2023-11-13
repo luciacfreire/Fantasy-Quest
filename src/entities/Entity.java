@@ -10,5 +10,6 @@ public abstract class Entity {
     public int speed;
     public String direction = null;
     public Rectangle solidArea;
+    public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean collisionOn = false;
 }

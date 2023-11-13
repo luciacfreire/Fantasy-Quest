@@ -2,6 +2,7 @@ package main;
 
 import entities.Player;
 import inputs.KeyboardInputs;
+import object.SuperObject;
 import tile.TileManager;
 
 import javax.swing.*;
@@ -26,9 +27,12 @@ public class GamePanel extends JPanel implements Runnable {
     public final int worldHeight = maxWorldRow * sizeTile;
 
     //INPUTS
-    KeyboardInputs keyI = new KeyboardInputs();
+    KeyboardInputs keyI;
     //ENTITIES
     public Player player;
+    public SuperObject obj[] = new SuperObject[10];
+    public AssetSetter aSetter = new AssetSetter(this);
+
     //FOR UPDATE AND REPAINT
     private Thread gameThread;
     private final int FPS = 60;
@@ -50,6 +54,10 @@ public class GamePanel extends JPanel implements Runnable {
 
     }
 
+    public void setUpGame(){
+        aSetter.setObject();
+    }
+
     public void startGameThread() {
         gameThread = new Thread(this);
         gameThread.start();
@@ -59,7 +67,15 @@ public class GamePanel extends JPanel implements Runnable {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
+        //TILE
         tileM.draw(g);
+        //OBJECT
+        for (int i = 0; i<obj.length; i++){
+            if(obj[i] != null){
+                obj[i].draw(g,this);
+            }
+        }
+        //PLAYER
         player.draw(g);
 
         g.dispose();

@@ -10,6 +10,8 @@ public class KeyboardInputs implements KeyListener {
     public boolean leftPressed;
     public boolean rightPressed;
 
+    //DEBUG
+    public boolean checkDrawTime = false;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -32,6 +34,15 @@ public class KeyboardInputs implements KeyListener {
         }
         if (code == KeyEvent.VK_RIGHT) {
             rightPressed = true;
+        }
+
+        if (code == KeyEvent.VK_T) {
+            if(!checkDrawTime){
+                checkDrawTime = true;
+            }
+            else if(checkDrawTime){
+                checkDrawTime = false;
+            }
         }
 
     }
