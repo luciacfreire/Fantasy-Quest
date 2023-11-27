@@ -221,6 +221,9 @@ classDiagram
     
     }
     class constants{
+
+    }
+
     class PlayerConstants {
         +final int WALK_DOWN
         +final int WALK_UP
@@ -238,5 +241,6 @@ classDiagram
         +final int loseState
         }
 
-
+    constants *-- GameStatesConstants
+    constants *-- PlayerConstants
 ```
