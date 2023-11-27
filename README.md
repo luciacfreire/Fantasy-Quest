@@ -99,7 +99,6 @@ classDiagram
     }
     
     class CollisionCheck{
-    <|--TileManager
     -GamePanel gp
     +CollisionCheck(GamePanel gp)
     -boolean checkCollision(int row, int col)
@@ -175,24 +174,20 @@ classDiagram
     }
     
     class OBJ_Door{
-    <|-- SuperObject
     
     +OBJ_Door(GamePanel gamePanel)
      
     }
     class OBJ_Heart{
-    <|-- SuperObject
     +OBJ_Heart(GamePanel gamePanel)
     }
     
     class  OBJ_LessSpeed{
-    <|-- SuperObject
     +OBJ_LessSpeed(GamePanel gamePanel)
     
     }
     
     class OBJ_MoreSpeed{
-    <|-- SuperObject
     +OBJ_MoreSpeed(GamePanel gamePanel)
     }
     class  SuperObject{
