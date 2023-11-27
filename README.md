@@ -128,7 +128,7 @@ classDiagram
     +Boss boss
     +SuperObject obj[]
     +AssetSetter aSetter
-    +UI ui = new UI(this)
+    +UI ui
     +Thread gameThread
     -final int FPS
     +CollisionCheck collCheck
