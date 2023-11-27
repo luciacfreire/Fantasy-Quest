@@ -24,80 +24,224 @@ https://cdn.andro4all.com/andro4all/2020/09/oie241727462OkHn8UM.jpg
 
 ```mermaid
 classDiagram
-    Personaje <|-- "0..1" Caballero
-    Personaje <|-- "0..1" Mago
-    Personaje <|-- "0..1" Elfo
-    Personaje <|-- "1" Dragon
-    Personaje <|-- "*" Esqueleto
-    Personaje <|-- "*" Goblin
-    Personaje <|-- "*" Zombie
-    Personaje : -int salud
-    Personaje : -String nombre
-    Personaje: -int nivel
-    Personaje: -int energia
-    Personaje : +saltar()
-    Personaje : +caminar()
-    Personaje : +atacar()
-    Personaje : +defender()
-    Juego "1" *-- "1..*" Personaje
-    Juego : +int dificultad
-    Juego : +string mapa
-    Juego : +string misiones
-    Juego : +iniciarJuego()
-    Juego : +elegirDificultad()
-    Juego : +cargarMapa()
-    Juego : +finJuego()
-    Juego "1" *-- "1" MapaPanel
-    MapaPanel : +string nombre
-    MapaPanel : +string descripcion
-    MapaPanel : +cargarElementos()
-    MapaPanel : +cargarEnemigos()
-    Elementos o-- MapaPanel
-    Elementos : +string nombre
-    Elementos : +int ubicacion 
-    Elementos : +aparecerElemento()
-    Elementos <|-- "1..*" Alimentos
-    Elementos <|-- "1..*" Armas
-    Armas o-- Combate 
-    Juego "1" o-- "1" Combate
-    Combate : +atacar()
-    Combate : +defender()
-    class Alimentos {
-    +int puntosRecuperar
-    +recuperarVida()   
+    Entity <|-- "1" Player
+    Entity <|-- "1" Boss
+    Entity : +int life
+    Entity : +int maxLife
+    Entity : +int worldX
+    Entity : +int worldY
+    Entity : +int Speed
+    Entity : +String direction
+    Entity : +Rectangle solidArea
+    Entity : +int solidAreaDefaultX
+    Entity : +int solidAreaDefaultY
+    Entity : +boolean collisionOn
+    Entity : +receiveDamage(int damage)
+    Entity : +boolean isDefeated()
+    Entity : +BufferedImage[][] loadAnimations(String path)
+    
+    class Player{
+    -int aniTick
+    -int aniIndex
+    -final int aniSpeed
+    -int playerDir
+    -int lastPlayerDir
+    -int lastAniIndex
+    -boolean moving
+    +final int screenX
+    +final int screenY
+    +Player(GamePanel gp, KeyboardInputs keyI)
+    +setDefaultValues()
+    +update()
+    +setDirection(String direction) 
+    +pickUpObject(int i)
+    +BufferedImage getInitialImage()
+    +draw(Graphics g) 
+    +updateAnimationTick()
     }
-    class Armas{
-    -int daño
-    -atacar()
-    -disminuirMunicion()
+    
+    class Boss{
+      +Boss(GamePanel gp)
+      +setDefaultLife()
+      +getBossImage()
+      +draw (Graphics g)
     }
-    class Caballero{
-      -String habilidadEspecial
-      -int armadura
+    class KeyboardInputs{
+    +boolean upPressed
+    +boolean downPressed
+    +boolean leftPressed
+    +boolean rightPressed
+    +boolean attackPressed
+    +KeyboardInputs(GamePanel gamePanel)
+    +keyTyped(KeyEvent e)
+    +keyPressed(KeyEvent e)
+    +keyReleased(KeyEvent e)
+    
     }
-    class Mago{
-      -String habilidadEspecial
-      -int hechizos
+    
+    class AssetSetter{
+    +AssetSetter(GamePanel gp)
+    +setObject()
     }
-    class Elfo{
-      -String habilidadEspecial
-      -int agilidad
+    
+    class Battle{
+    -BufferedImage backgroundImage
+    +boolean playerTurn
+    +int lastPlayerAttackPower
+    +int lastBossAttackPower
+    +String lastAttacker
+    +Battle(GamePanel gamePanel)
+    +update()
+    -int generateRandomAttackPower(int min, int max)
+    +getBackgroundImage()
+    +draw (Graphics g)
+    
     }
-    class Dragon{
-      -String habilidadEspecial
-      -int fuegoAliento
+    
+    class CollisionCheck{
+    <|--TileManager
+    -GamePanel gp
+    +CollisionCheck(GamePanel gp)
+    -boolean checkCollision(int row, int col)
+    -boolean checkCollisionElem
+    -int calculateRow(float worldY)
+    -int calculateCol(float worldX)
+    +checkTile(Entity entity) 
+    +int checkObject(Entity entity, boolean player)
     }
-    class Esqueleto{
-      -String habilidadEspecial
-      -int resistenciaMagia
+    class Game{
+    -GameWindow gameWindow
+    -GamePanel gamePanel
+    +Game()
     }
-    class Goblin{
-      -String habilidadEspecial
-      -int velocidad
+    class GamePanel{
+    +final int originalSizeTile
+    +final int sizeTile
+    +final int maxScreenCol 
+    +int maxScreenRow 
+    +final int screenWidth 
+    +final int screenHeight 
+    +final int maxWorldCol 
+    +final int maxWorldRow 
+    +final int worldWidth 
+    +final int worldHeight 
+    +Player player
+    +Boss boss
+    +SuperObject obj[]
+    +AssetSetter aSetter
+    +UI ui = new UI(this)
+    +Thread gameThread
+    -final int FPS
+    +CollisionCheck collCheck
+    +int gameState;
+    +final int titleState
+    +final int playState
+    +final int pauseState
+    +final int battleState
+    +Battle battle
+    +GamePanel()
+    +setUpGame()
+    +startGameThread()
+    +paintComponent(Graphics g)
+    +update()
+    +run()
+    
     }
-    class Zombie{
-      -String habilidadEspecial
-      -int fuerza
+    
+    class GameWindow{
+    +GameWindow
+    -JFrame window
+    +GameWindow(GamePanel gamePanel)
+    
     }
+    
+    class UI{
+    +boolean messageOn
+    +String message
+    +int commandNum
+    +UI (GamePanel gamePanel)
+    +showMessage (String text)
+    +draw (Graphics g)
+    +DrawRectMessage()
+    +drawPlayerLife()
+    +drawBossLife()
+    +drawTitleScreen()
+    +BufferedImage getImage()
+    +drawPauseScreen()
+    +int getXforCenteredText(String text)
+    }
+    class UtilityTool{
+    +BufferedImage scaledImage(BufferedImage original, int width, int height)
+    }
+    
+    class OBJ_Door{
+    <|-- SuperObject
+    
+    +OBJ_Door(GamePanel gamePanel)
+     
+    }
+    class OBJ_Heart{
+    <|-- SuperObject
+    +OBJ_Heart(GamePanel gamePanel)
+    }
+    
+    class  OBJ_LessSpeed{
+    <|-- SuperObject
+    +OBJ_LessSpeed(GamePanel gamePanel)
+    
+    }
+    
+    class OBJ_MoreSpeed{
+    <|-- SuperObject
+    +OBJ_MoreSpeed(GamePanel gamePanel)
+    }
+    class  SuperObject{
+    +BufferedImage image
+    +BufferedImage image2
+    +BufferedImage image3
+    +String name
+    +boolean collision
+    +int worldX
+    +int worldY
+    +Rectangle solidArea
+    +int solidAreaDefaultX
+    +int solidAreaDefaultY
+    }
+    class Tile{
+    +BufferedImage image
+    +boolean collision
+    }
+    class TileManager{
+    +Tile[] tile
+    +Tile[] tileElem
+    +int[][] objectMap
+    +int[][] mapTileNum
+    +TileManager(GamePanel gamePanel)
+    +getElemImage()
+    +loadObjectMap(String filePath)
+    +getTileImage()
+    +setup(int index, String imageName, int x, int y, boolean collision, Tile[] tile)
+    +loadMap(String filePath)
+    +draw(Graphics g)
+    
+    }
+    class constants{
+    class PlayerConstants {
+        +final int WALK_DOWN
+        +final int WALK_UP
+        +final int WALK_LEFT
+        +final int WALK_RIGHT
+        +final int WALK_SPRITES
+    }
+
+    class GameStatesConstants {
+        +final int titleState
+        +final int playState
+        +final int pauseState
+        +final int battleState
+        +final int winState
+        +final int loseState
+        }
+
 
 ```

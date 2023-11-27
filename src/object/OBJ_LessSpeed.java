@@ -14,6 +14,7 @@ public class OBJ_LessSpeed extends SuperObject{
         try {
             BufferedImage imageRead = ImageIO.read(new File("res/player/enemigos.png"));
             image = imageRead.getSubimage(3*gamePanel.originalSizeTile,gamePanel.originalSizeTile,gamePanel.originalSizeTile,gamePanel.originalSizeTile);
+            image = uTool.scaledImage(image, gamePanel.sizeTile, gamePanel.sizeTile);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
