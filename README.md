@@ -243,4 +243,9 @@ classDiagram
 
     constants *-- GameStatesConstants
     constants *-- PlayerConstants
+    SuperObject  *-- OBJ_MoreSpeed
+    SuperObject  *-- OBJ_LessSpeed
+    SuperObject  *-- OBJ_Heart
+    SuperObject  *-- OBJ_Door
+    Tile *-- TileManager
 ```
